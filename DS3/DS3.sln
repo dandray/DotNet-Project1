@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DsWs", "DsWs\DsWs.csproj", "{46A6B401-DB9D-463F-A1CF-C628E9DEC64A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ds3Client", "Ds3Client\Ds3Client.csproj", "{1409313A-2C7F-4240-BD31-19A55076C777}"
+	ProjectSection(ProjectDependencies) = postProject
+		{46A6B401-DB9D-463F-A1CF-C628E9DEC64A} = {46A6B401-DB9D-463F-A1CF-C628E9DEC64A}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{46A6B401-DB9D-463F-A1CF-C628E9DEC64A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46A6B401-DB9D-463F-A1CF-C628E9DEC64A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46A6B401-DB9D-463F-A1CF-C628E9DEC64A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46A6B401-DB9D-463F-A1CF-C628E9DEC64A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1409313A-2C7F-4240-BD31-19A55076C777}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1409313A-2C7F-4240-BD31-19A55076C777}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1409313A-2C7F-4240-BD31-19A55076C777}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1409313A-2C7F-4240-BD31-19A55076C777}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ds3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="coureurs">
+          <Key>
+            <PropertyRef Name="dossard" />
+          </Key>
+          <Property Name="dossard" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="prenom" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="nationalite" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="datenaissance" Type="date" />
+          <Property Name="equipe" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="equipes">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="nom" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="nationalite" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="directeur" Type="varchar" MaxLength="80" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_courreurs_equipes">
+          <End Role="equipes" Type="Self.equipes" Multiplicity="0..1" />
+          <End Role="coureurs" Type="Self.coureurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="equipes">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="coureurs">
+              <PropertyRef Name="equipe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ds3ModelStoreContainer">
+          <EntitySet Name="coureurs" EntityType="Self.coureurs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="equipes" EntityType="Self.equipes" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_courreurs_equipes" Association="Self.fk_courreurs_equipes">
+            <End Role="equipes" EntitySet="equipes" />
+            <End Role="coureurs" EntitySet="coureurs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ds3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="coureurs">
+          <Key>
+            <PropertyRef Name="dossard" />
+          </Key>
+          <Property Name="dossard" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prenom" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nationalite" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="datenaissance" Type="DateTime" Precision="0" />
+          <Property Name="equipe" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="equipes" Relationship="Self.fk_courreurs_equipes" FromRole="coureurs" ToRole="equipes" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+        </EntityType>
+        <EntityType Name="equipes">
+          <Key>
+            <PropertyRef Name="code" />
+          </Key>
+          <Property Name="code" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="nom" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nationalite" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="directeur" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="coureurs" Relationship="Self.fk_courreurs_equipes" FromRole="equipes" ToRole="coureurs" a:GetterAccess="Private" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" a:SetterAccess="Private" />
+        </EntityType>
+        <Association Name="fk_courreurs_equipes">
+          <End Role="equipes" Type="Self.equipes" Multiplicity="0..1" />
+          <End Role="coureurs" Type="Self.coureurs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="equipes">
+              <PropertyRef Name="code" />
+            </Principal>
+            <Dependent Role="coureurs">
+              <PropertyRef Name="equipe" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ds3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="coureurs" EntityType="Self.coureurs" />
+          <EntitySet Name="equipes" EntityType="Self.equipes" />
+          <AssociationSet Name="fk_courreurs_equipes" Association="Self.fk_courreurs_equipes">
+            <End Role="equipes" EntitySet="equipes" />
+            <End Role="coureurs" EntitySet="coureurs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ds3ModelStoreContainer" CdmEntityContainer="ds3Entities">
+          <EntitySetMapping Name="coureurs">
+            <EntityTypeMapping TypeName="ds3Model.coureurs">
+              <MappingFragment StoreEntitySet="coureurs">
+                <ScalarProperty Name="dossard" ColumnName="dossard" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="prenom" ColumnName="prenom" />
+                <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+                <ScalarProperty Name="datenaissance" ColumnName="datenaissance" />
+                <ScalarProperty Name="equipe" ColumnName="equipe" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="equipes">
+            <EntityTypeMapping TypeName="ds3Model.equipes">
+              <MappingFragment StoreEntitySet="equipes">
+                <ScalarProperty Name="code" ColumnName="code" />
+                <ScalarProperty Name="nom" ColumnName="nom" />
+                <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+                <ScalarProperty Name="directeur" ColumnName="directeur" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

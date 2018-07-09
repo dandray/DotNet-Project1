@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ds3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="coureurs">
+    <Key>
+      <PropertyRef Name="dossard" />
+    </Key>
+    <Property Name="dossard" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="prenom" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="nationalite" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="datenaissance" Type="date" />
+    <Property Name="equipe" Type="char" MaxLength="3" />
+  </EntityType>
+  <EntityType Name="equipes">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="nom" Type="varchar" MaxLength="80" Nullable="false" />
+    <Property Name="nationalite" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="directeur" Type="varchar" MaxLength="80" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_courreurs_equipes">
+    <End Role="equipes" Type="Self.equipes" Multiplicity="0..1" />
+    <End Role="coureurs" Type="Self.coureurs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="equipes">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="coureurs">
+        <PropertyRef Name="equipe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ds3ModelStoreContainer">
+    <EntitySet Name="coureurs" EntityType="Self.coureurs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="equipes" EntityType="Self.equipes" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_courreurs_equipes" Association="Self.fk_courreurs_equipes">
+      <End Role="equipes" EntitySet="equipes" />
+      <End Role="coureurs" EntitySet="coureurs" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

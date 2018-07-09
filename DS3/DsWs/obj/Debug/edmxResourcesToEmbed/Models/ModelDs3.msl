@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ds3ModelStoreContainer" CdmEntityContainer="ds3Entities">
+    <EntitySetMapping Name="coureurs">
+      <EntityTypeMapping TypeName="ds3Model.coureurs">
+        <MappingFragment StoreEntitySet="coureurs">
+          <ScalarProperty Name="dossard" ColumnName="dossard" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="prenom" ColumnName="prenom" />
+          <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+          <ScalarProperty Name="datenaissance" ColumnName="datenaissance" />
+          <ScalarProperty Name="equipe" ColumnName="equipe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="equipes">
+      <EntityTypeMapping TypeName="ds3Model.equipes">
+        <MappingFragment StoreEntitySet="equipes">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="nationalite" ColumnName="nationalite" />
+          <ScalarProperty Name="directeur" ColumnName="directeur" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

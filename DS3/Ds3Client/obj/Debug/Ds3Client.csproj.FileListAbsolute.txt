@@ -1,0 +1,16 @@
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\bin\Debug\Ds3Client.exe.config
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\bin\Debug\Ds3Client.exe
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\bin\Debug\Ds3Client.pdb
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\bin\Debug\Newtonsoft.Json.dll
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\bin\Debug\Newtonsoft.Json.xml
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\MainWindow.g.cs
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\App.g.cs
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client_MarkupCompile.cache
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client_MarkupCompile.lref
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\MainWindow.baml
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client.g.resources
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client.Properties.Resources.resources
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client.csproj.GenerateResource.Cache
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client.exe
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client.pdb
+c:\users\nad\documents\visual studio 2015\Projects\DS3\Ds3Client\obj\Debug\Ds3Client.csprojResolveAssemblyReference.cache
