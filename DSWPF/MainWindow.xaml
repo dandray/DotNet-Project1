@@ -1,0 +1,56 @@
+﻿<Window x:Class="DSWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DSWPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <StackPanel>
+        
+        <TabControl x:Name="tabControl" VerticalAlignment="Stretch">
+            <TabItem Header="Tous les musiques">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dataGridListMusiques" MinHeight="110px"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="ID" Binding="{Binding MUS_ID}"/>
+                            <DataGridTextColumn Header="Titre" Binding="{Binding MUS_TITRE}"/>
+                            <DataGridTextColumn Header="Date Parution" Binding="{Binding MUS_DATEPARUTION}"/>
+                            <DataGridTextColumn Header="Prix TTC" Binding="{Binding MUS_PRIXTTC}"/>
+                            <DataGridTextColumn Header="Code Barre" Binding="{Binding MUS_CODEBARRE}"/>
+                            <DataGridTextColumn Header="Stock" Binding="{Binding MUS_STOCK}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Une musique">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,732" Grid.ColumnSpan="5">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="titreMusique" MinWidth="100"></TextBox>
+                            <Button x:Name="AfficherUneMusique" Content="Afficher"  Width="100" Click="AfficherUneMusique_Click"/>
+                            
+                            </StackPanel>
+                        <StackPanel>
+                            <DataGrid x:Name="dataGridListMusique" MinHeight="60px"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="ID" Binding="{Binding MUS_ID}"/>
+                                    <DataGridTextColumn Header="Titre" Binding="{Binding MUS_TITRE}"/>
+                                    <DataGridTextColumn Header="Date Parution" Binding="{Binding MUS_DATEPARUTION}"/>
+                                    <DataGridTextColumn Header="Prix TTC" Binding="{Binding MUS_PRIXTTC}"/>
+                                    <DataGridTextColumn Header="Code Barre" Binding="{Binding MUS_CODEBARRE}"/>
+                                    <DataGridTextColumn Header="Stock" Binding="{Binding MUS_STOCK}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                        
+                        
+                        
+                        
+                   
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>

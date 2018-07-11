@@ -1,0 +1,16 @@
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\bin\Debug\DSWPF.exe.config
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\bin\Debug\DSWPF.exe
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\bin\Debug\DSWPF.pdb
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\bin\Debug\Newtonsoft.Json.dll
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\bin\Debug\Newtonsoft.Json.xml
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF.csprojResolveAssemblyReference.cache
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\MainWindow.g.cs
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\App.g.cs
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF_MarkupCompile.cache
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF_MarkupCompile.lref
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\MainWindow.baml
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF.g.resources
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF.Properties.Resources.resources
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF.csproj.GenerateResource.Cache
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF.exe
+c:\Users\Damdoum\documents\visual studio 2015\Projects\DS\DSWPF\obj\Debug\DSWPF.pdb
