@@ -1,0 +1,16 @@
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\bin\Debug\ClientTripAdvisor.exe.config
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor.csprojResolveAssemblyReference.cache
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\Resto.g.cs
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\App.g.cs
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor_MarkupCompile.cache
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor_MarkupCompile.lref
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\bin\Debug\ClientTripAdvisor.exe
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\bin\Debug\ClientTripAdvisor.pdb
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\Resto.baml
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor.g.resources
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor.Properties.Resources.resources
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor.csproj.GenerateResource.Cache
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor.exe
+C:\Users\Nad\documents\visual studio 2015\Projects\TP1\ClientTripAdvisor\obj\Debug\ClientTripAdvisor.pdb

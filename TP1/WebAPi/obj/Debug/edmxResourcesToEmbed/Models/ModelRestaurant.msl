@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TripAdvisorModelStoreContainer" CdmEntityContainer="TripAdvisorEntities">
+    <EntitySetMapping Name="T_E_RESTAURANT_RES">
+      <EntityTypeMapping TypeName="TripAdvisorModel.T_E_RESTAURANT_RES">
+        <MappingFragment StoreEntitySet="T_E_RESTAURANT_RES">
+          <ScalarProperty Name="RES_ID" ColumnName="RES_ID" />
+          <ScalarProperty Name="PRX_PRIX" ColumnName="PRX_PRIX" />
+          <ScalarProperty Name="RES_NOM" ColumnName="RES_NOM" />
+          <ScalarProperty Name="RES_DESCRIPTION" ColumnName="RES_DESCRIPTION" />
+          <ScalarProperty Name="RES_CATEGORIEPRIX" ColumnName="RES_CATEGORIEPRIX" />
+          <ScalarProperty Name="res_adr" ColumnName="res_adr" />
+          <ScalarProperty Name="RES_CP" ColumnName="RES_CP" />
+          <ScalarProperty Name="RES_VILLE" ColumnName="RES_VILLE" />
+          <ScalarProperty Name="RES_PAYS" ColumnName="RES_PAYS" />
+          <ScalarProperty Name="RES_LATITUDE" ColumnName="RES_LATITUDE" />
+          <ScalarProperty Name="RES_LONGITUDE" ColumnName="RES_LONGITUDE" />
+          <ScalarProperty Name="IND_INDICATIF" ColumnName="IND_INDICATIF" />
+          <ScalarProperty Name="RES_TEL" ColumnName="RES_TEL" />
+          <ScalarProperty Name="RES_SITEWEB" ColumnName="RES_SITEWEB" />
+          <ScalarProperty Name="RES_MEL" ColumnName="RES_MEL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,226 @@
+﻿<Window x:Class="ClientTripAdvisor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ClientTripAdvisor"
+        mc:Ignorable="d"
+        Title="Restaurants" Height="550" Width="725">
+    <StackPanel Margin="10" Orientation="Vertical" >
+        <StackPanel Orientation="Horizontal" Margin="0,10">
+            <ComboBox x:Name="comboBox" Width="70" SelectedIndex="0">
+                <ComboBoxItem Content="JSON" HorizontalAlignment="Left" Width="92"/>
+                <ComboBoxItem Content="XML" HorizontalAlignment="Left" Width="92"/>
+            </ComboBox>
+            <Button x:Name="getDataButton" Content="Récupérer données" Margin="30 0 0 0" Click="button_Click" />
+        </StackPanel>
+        <TextBox x:Name="resultTextbox" Height="83" TextWrapping="Wrap" Text="" />
+
+        <Button x:Name="fillCombo" Height="23" Width="150"  Margin="0 10 0 10" Content="Remplir combos et grille" Click="fillCombo_Click"/>
+        <TabControl x:Name="tabControl" VerticalAlignment="Stretch">
+            <TabItem Header="Tous les restaurants">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dataGridListResto" MinHeight="110px"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nom" Binding="{Binding RES_NOM}"/>
+                            <DataGridTextColumn Header="Description" Binding="{Binding RES_DESCRIPTION}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Un restaurant">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,10,10,732" Grid.ColumnSpan="5">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox x:Name="ListRestaurateurCombo" Margin="0 0 20 0" Width="100" ItemsSource="{Binding}" DisplayMemberPath="RES_ID"/>
+                            <Button x:Name="AfficherUnRestButt" Content="Afficher"  Width="100"  Click="afficherUnRestButt_Click"/>
+                            <Label Margin="20 0 0 0" Content="Il s'agit ici de récupérer un restaurant via le WS REST"/>
+                        </StackPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 30 0">
+                                <Label>Prix</Label>
+                                <TextBox x:Name="prixRestoTxt" MinWidth="100"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Nom</Label>
+                                <TextBox x:Name="nomRestoTxt" MinWidth="200"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label>Catégorie prix</Label>
+                                <TextBox x:Name="categPrixRestoTxt" MinWidth="145"></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal">
+                            <Label>Description</Label>
+                            <TextBox x:Name="descRestoTxt" HorizontalAlignment="Stretch" Width="580" Height="40"/>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <Label>Adresse</Label>
+                            <TextBox x:Name="add1RestoTxt" HorizontalAlignment="Stretch" Width="210" />
+                            <TextBox x:Name="add2RestoTxt" HorizontalAlignment="Stretch" Width="60" Margin="10 0 10 0"/>
+                            <TextBox x:Name="add3RestoTxt" HorizontalAlignment="Stretch" Width="130" />
+                            <TextBox x:Name="add4RestoTxt" HorizontalAlignment="Stretch" Width="130" Margin="10 0 0 0"/>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 80 0">
+                                <Label>Tél.</Label>
+                                <TextBox x:Name="indicatifTxt" Margin="0 0 10 0" MinWidth="100"></TextBox>
+                                <TextBox x:Name="telTxt" MinWidth="150"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Mail</Label>
+                                <TextBox x:Name="mailTxt" MinWidth="230"></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <Label>Web</Label>
+                            <TextBox x:Name="webTxt" HorizontalAlignment="Stretch" Width="210" />
+                        </WrapPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Ajouter">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 30 0">
+                                <Label>Prix</Label>
+                                <ComboBox x:Name="NewPrixRestoTxt" MinWidth="100">
+                                    <ComboBoxItem Content="€" HorizontalAlignment="Left" Width="92"/>
+                                    <ComboBoxItem Content="€€" HorizontalAlignment="Left" Width="92"/>
+                                    <ComboBoxItem Content="€€€" HorizontalAlignment="Left" Width="92"/>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Nom</Label>
+                                <TextBox x:Name="NewNomRestoTxt" MinWidth="200"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label>Catégorie prix</Label>
+                                <TextBox x:Name="NewCategPrixRestoTxt" MinWidth="145"></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal">
+                            <Label>Description</Label>
+                            <TextBox x:Name="NewDescRestoTxt" HorizontalAlignment="Stretch" Width="580" Height="40"/>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <Label>Adresse</Label>
+                            <TextBox x:Name="NewAdd1RestoTxt" HorizontalAlignment="Stretch" Width="210" />
+                            <TextBox x:Name="NewAdd2RestoTxt" HorizontalAlignment="Stretch" Width="60" Margin="10 0 10 0"/>
+                            <TextBox x:Name="NewAdd3RestoTxt" HorizontalAlignment="Stretch" Width="130" />
+                            <TextBox x:Name="NewAdd4RestoTxt" HorizontalAlignment="Stretch" Width="130" Margin="10 0 0 0"/>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 80 0">
+                                <Label>Tél.</Label>
+                                <TextBox x:Name="NewIndicatifTxt" Margin="0 0 10 0" MinWidth="100"></TextBox>
+                                <TextBox x:Name="NewTelTxt" MinWidth="150"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Mail</Label>
+                                <TextBox x:Name="NewMailTxt" MinWidth="230"></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <Label>Web</Label>
+                            <TextBox x:Name="NewWebTxt" HorizontalAlignment="Stretch" Width="210" />
+                        </WrapPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="ajouterResBut" Content="Ajouter"  Margin="230 0 0 0"   Width="100" Click="ajouterResBut_Click"/>
+                            <Label Content="Appel du WS REST (POST) pour ajouter un restaurateur"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Modifier">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <ComboBox x:Name="ListRestaurateurToEditCombo" Margin="0 0 20 0" Width="100" ItemsSource="{Binding}" DisplayMemberPath="RES_ID" SelectedValuePath="RES_ID"/>
+                            <Button x:Name="AfficherUnRestToEditButt" Content="Afficher restaurant à modifier"  Width="170" Click="AfficherUnRestToEditButt_Click" />
+                        </StackPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 30 0">
+                                <Label>Prix</Label>
+                                <ComboBox x:Name="EditPrixRestoTxt" MinWidth="100">
+                                    <ComboBoxItem Content="€" HorizontalAlignment="Left" Width="92"/>
+                                    <ComboBoxItem Content="€€" HorizontalAlignment="Left" Width="92"/>
+                                    <ComboBoxItem Content="€€€" HorizontalAlignment="Left" Width="92"/>
+                                </ComboBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Nom</Label>
+                                <TextBox x:Name="EditNomRestoTxt" MinWidth="200"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Label>Catégorie prix</Label>
+                                <TextBox x:Name="EditCategPrixRestoTxt" MinWidth="145"></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal">
+                            <Label>Description</Label>
+                            <TextBox x:Name="EditDescRestoTxt" HorizontalAlignment="Stretch" Width="580" Height="40"/>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <Label>Adresse</Label>
+                            <TextBox x:Name="EditAdd1RestoTxt" HorizontalAlignment="Stretch" Width="210" />
+                            <TextBox x:Name="EditAdd2RestoTxt" HorizontalAlignment="Stretch" Width="60" Margin="10 0 10 0"/>
+                            <TextBox x:Name="EditAdd3RestoTxt" HorizontalAlignment="Stretch" Width="130" />
+                            <TextBox x:Name="EditAdd4RestoTxt" HorizontalAlignment="Stretch" Width="130" Margin="10 0 0 0"/>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 80 0">
+                                <Label>Tél.</Label>
+                                <TextBox x:Name="EditIndicatifTxt" Margin="0 0 10 0" MinWidth="100"></TextBox>
+                                <TextBox x:Name="EditTelTxt" MinWidth="150"></TextBox>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Mail</Label>
+                                <TextBox x:Name="EditMailTxt" MinWidth="230"></TextBox>
+                            </StackPanel>
+                        </WrapPanel>
+                        <WrapPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Label>Web</Label>
+                                <TextBox x:Name="EditWebTxt" HorizontalAlignment="Stretch" Width="210" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0 0 20 0">
+                                <Button x:Name="ModifierResBut" Content="Modifier"  Margin="100 0 0 0"   Width="100" Click="ModifierResBut_Click"/>
+                            </StackPanel>
+                        </WrapPanel>
+
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Supprimer">
+                <Grid Background="#FFE5E5E5">
+                    <StackPanel Orientation="Horizontal">
+                        <ComboBox x:Name="ListRestaurateurToDeleteCombo" Margin="0 0 20 0" Width="100" ItemsSource="{Binding}" DisplayMemberPath="RES_ID" SelectedValuePath="RES_ID"/>
+                        <Button x:Name="SupprimerUnRestToEditButt" Content="Supprimer"  Width="140" Click="SupprimerUnRestToEditButt_Click" />
+                        <Label Content="Appel du WS REST (DELETE) pour supprimer un restaurateur"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Rechercher restaurant">
+                <Grid Background="#FFE5E5E5">
+                    <WrapPanel Orientation="Vertical" >
+                        <StackPanel Orientation="Horizontal" Margin="0 10 0 10">
+                            <Label x:Name="NomRestaurantLabel">Nom du restaurant:</Label>
+                            <TextBox x:Name="NomRestaurantText" Margin="0 0 20 0" Width="100" />
+                            <CheckBox x:Name="ExactCheckBox" Margin="0 10 20 0">Exact</CheckBox>
+                            <Button x:Name="RechercherButton" Content="Rechercher"  Width="140" Click="RechercherButton_Click" />
+
+                        </StackPanel>
+                        <DataGrid Grid.ColumnSpan="2" x:Name="DataSearchGridListResto" MinWidth="689" MinHeight="110px"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" ItemsSource="{Binding}" AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Nom" Binding="{Binding RES_NOM}"/>
+                                <DataGridTextColumn Header="Description" Binding="{Binding RES_DESCRIPTION}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </WrapPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </StackPanel>
+</Window>
